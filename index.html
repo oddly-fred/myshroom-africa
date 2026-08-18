@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ITGov Nigeria 2026 — Post-Event Recap | Tranter IT</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;600;700;800;900&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --tranter-green: #00A651;
+            --tranter-red: #891219;
+            --me-blue: #004297;
+            --me-yellow: #FFD200;
+            --text-dark: #1A1A1A;
+            --text-gray: #4B5563;
+            --bg-white: #FFFFFF;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Open Sans', sans-serif; background: #fff; color: #1A1A1A; scroll-behavior: smooth; }
+        h1,h2,h3,h4,.font-mulish { font-family: 'Mulish', sans-serif; }
+
+        /* NAV */
+        .glass-nav { background: rgba(255,255,255,0.96); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(0,0,0,0.06); position: fixed; top: 0; width: 100%; z-index: 50; padding: 12px 40px; display: flex; justify-content: space-between; align-items: center; }
+        .nav-logo { display: flex; align-items: center; gap: 16px; }
+        .nav-logo img { height: 34px; object-fit: contain; }
+        .nav-logo .divider { width: 1px; height: 28px; background: #e5e7eb; }
+        .nav-links { display: flex; align-items: center; gap: 32px; }
+        .nav-links a { font-family: 'Mulish', sans-serif; font-weight: 800; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #4b5563; text-decoration: none; transition: color 0.2s; }
+        .nav-links a:hover { color: #00A651; }
+
+        /* HERO */
+        .hero { 
+            background:
+                radial-gradient(circle at 18% 22%, rgba(0,166,81,0.42) 0, rgba(0,166,81,0) 28%),
+                radial-gradient(circle at 78% 18%, rgba(0,66,151,0.32) 0, rgba(0,66,151,0) 32%),
+                linear-gradient(135deg, #001a0d 0%, #003d1f 48%, #00A651 145%);
+            color: #fff; min-height: 100vh; display: flex; align-items: center; padding: 120px 40px 80px; position: relative; overflow: hidden; 
+        }
+        .hero::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            opacity: 0.38;
+            background-image:
+                radial-gradient(circle, rgba(255,255,255,0.9) 1px, transparent 1.5px),
+                linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+            background-size: 90px 90px, 72px 72px, 72px 72px;
+            background-position: 20px 30px, 0 0, 0 0;
+        }
+        .hero-bg-svg { position: absolute; top: 0; right: 0; width: 50%; height: 100%; opacity: 0.08; pointer-events: none; }
+        .hero-inner { max-width: 1100px; margin: 0 auto; width: 100%; display: flex; gap: 60px; align-items: center; position: relative; z-index: 2; }
+        .hero-text { flex: 1; }
+        .badge { display: inline-flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.1); padding: 6px 16px; border-radius: 999px; margin-bottom: 24px; }
+        .badge-dot { width: 8px; height: 8px; background: #FFD200; border-radius: 50%; }
+        .badge span { font-family: 'Mulish', sans-serif; font-weight: 900; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; }
+        .hero h1 { font-family: 'Mulish', sans-serif; font-weight: 900; font-size: clamp(2rem, 4vw, 3.5rem); line-height: 1.08; margin-bottom: 24px; letter-spacing: -0.02em; color: #fff; }
+        .hero h1 .green { color: #00A651; }
+        .hero h1 .yellow { color: #FFD200; }
+        .hero p { font-size: 17px; color: rgba(255,255,255,0.65); line-height: 1.7; margin-bottom: 36px; max-width: 520px; }
+        .hero-meta { display: flex; gap: 28px; flex-wrap: wrap; margin-bottom: 0; }
+        .hero-meta-item { display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; }
+        .hero-meta-item svg { color: #FFD200; flex-shrink: 0; }
+        .hero-gov-visual { flex: 1; display: flex; justify-content: center; align-items: center; position: relative; isolation: isolate; }
+        .hero-gov-visual::before { content: ""; position: absolute; inset: 8% 4%; background: rgba(255,255,255,0.4); border-radius: 28px; transform: rotate(-3deg); z-index: -1; filter: blur(1px); }
+        .hero-gov-visual::after { content: ""; position: absolute; inset: 3% 0; border: 1px solid rgba(255,255,255,0.22); border-radius: 32px; z-index: -1; }
+        .hero-gov-visual img { max-width: 100%; height: auto; display: block; filter: drop-shadow(0 28px 45px rgba(0,0,0,0.35)); border-radius: 16px; }
+
+        /* PARTNER STRIP */
+        .partner-strip { padding: 32px 40px; border-bottom: 1px solid #f3f4f6; }
+        .partner-strip-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: center; align-items: center; gap: 60px; filter: grayscale(1); opacity: 0.35; transition: all 0.6s; }
+        .partner-strip-inner:hover { filter: grayscale(0); opacity: 1; }
+        .partner-strip-inner img { height: 80px; object-fit: contain; }
+
+        /* SECTIONS */
+        section { padding: 80px 40px; }
+        .section-inner { max-width: 1100px; margin: 0 auto; }
+        .accent-line { width: 52px; height: 4px; background: #FFD200; border-radius: 2px; margin-bottom: 20px; }
+        .accent-line.green { background: #00A651; }
+        .accent-line.red { background: #891219; }
+        .accent-line.blue { background: #004297; }
+        .section-title { font-family: 'Mulish', sans-serif; font-weight: 900; font-size: clamp(1.8rem, 3vw, 3rem); letter-spacing: -0.02em; margin-bottom: 16px; }
+        .section-sub { font-size: 17px; color: #6b7280; font-weight: 300; line-height: 1.6; max-width: 680px; }
+
+        /* EVENT RECAP */
+        #recap { background: #fff; }
+        .recap-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; margin-top: 48px; }
+        .recap-image { width: 100%; aspect-ratio: 4/3; border-radius: 20px; overflow: hidden; background: #f3f4f6; }
+        .recap-image img { width: 100%; height: 100%; object-fit: cover; }
+        .recap-text h3 { font-family: 'Mulish', sans-serif; font-weight: 800; font-size: 22px; margin-bottom: 16px; color: #1A1A1A; }
+        .recap-text p { font-size: 16px; color: #4b5563; line-height: 1.8; margin-bottom: 16px; }
+        .recap-text p:last-child { margin-bottom: 0; }
+
+        /* KEY NUMBERS */
+        #key-numbers {
+            background:
+                radial-gradient(circle at 18% 22%, rgba(0,166,81,0.42) 0, rgba(0,166,81,0) 28%),
+                radial-gradient(circle at 78% 18%, rgba(0,66,151,0.32) 0, rgba(0,66,151,0) 32%),
+                linear-gradient(135deg, #001a0d 0%, #003d1f 48%, #00A651 145%);
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+        #key-numbers::before {
+            content: "";
+            position: absolute; inset: 0; pointer-events: none; opacity: 0.2;
+            background-image:
+                linear-gradient(rgba(255,255,255,0.05) 1px,transparent 1px),
+                linear-gradient(90deg,rgba(255,255,255,0.05) 1px,transparent 1px);
+            background-size: 70px 70px;
+        }
+        #key-numbers .section-inner { position: relative; z-index: 2; }
+        .numbers-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 48px; }
+        .number-card { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; padding: 40px 28px; text-align: center; transition: all 0.4s; }
+        .number-card:hover { background: rgba(255,255,255,0.14); transform: translateY(-4px); }
+        .number-icon { width: 56px; height: 56px; border-radius: 16px; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; }
+        .number-icon.green { background: rgba(0,166,81,0.2); color: #00A651; }
+        .number-icon.blue { background: rgba(0,66,151,0.2); color: #7DB8FF; }
+        .number-icon.yellow { background: rgba(255,210,0,0.2); color: #FFD200; }
+        .number-icon.red { background: rgba(137,18,25,0.2); color: #FF8A8A; }
+        .number-icon svg { width: 26px; height: 26px; }
+        .number-val { font-family: 'Mulish', sans-serif; font-weight: 900; font-size: clamp(2.2rem, 4vw, 3.5rem); margin-bottom: 4px; }
+        .number-val.green,
+        .number-val.blue,
+        .number-val.yellow,
+        .number-val.red { color: #fff; }
+        .number-label { font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.5); }
+
+        /* PHOTO GALLERY */
+        #gallery { background: #f9fafb; }
+        .gallery-grid { display: flex; gap: 16px; margin-top: 48px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding: 4px 2px 14px; overscroll-behavior-x: contain; }
+        .gallery-grid::-webkit-scrollbar { display: none; }
+        .gallery-item { flex: 0 0 min(84vw, 360px); aspect-ratio: 4/3; scroll-snap-align: start; border-radius: 16px; overflow: hidden; background: #e5e7eb; cursor: pointer; transition: all 0.4s; position: relative; }
+        .gallery-item:hover { transform: scale(1.02); box-shadow: 0 16px 40px rgba(0,0,0,0.12); }
+        .gallery-item.tall { aspect-ratio: 4/3; }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s; }
+        .gallery-item:hover img { transform: scale(1.05); }
+        .gallery-overlay { position: absolute; inset: 0; background: linear-gradient(transparent 60%, rgba(0,0,0,0.5)); opacity: 0; transition: opacity 0.3s; display: flex; align-items: flex-end; padding: 20px; }
+        .gallery-item:hover .gallery-overlay { opacity: 1; }
+        .gallery-overlay span { color: #fff; font-family: 'Mulish', sans-serif; font-weight: 700; font-size: 13px; }
+
+        /* VIDEO HIGHLIGHTS */
+        #videos { background: #fff; }
+        .videos-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 36px; max-width: 960px; }
+        .video-card { border-radius: 20px; overflow: hidden; background: #111827; position: relative; cursor: pointer; transition: all 0.4s; }
+        .video-card:hover { transform: translateY(-4px); box-shadow: 0 20px 50px rgba(0,0,0,0.15); }
+        .video-thumb { width: 100%; aspect-ratio: 16/9; background: #1f2937; position: relative; overflow: hidden; }
+        .video-thumb img { width: 100%; height: 100%; object-fit: cover; opacity: 0.8; transition: opacity 0.3s; }
+        .video-card:hover .video-thumb img { opacity: 1; }
+        .play-btn { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 72px; height: 72px; background: rgba(0,166,81,0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.3s; box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
+        .play-btn svg { width: 28px; height: 28px; color: #fff; margin-left: 3px; }
+        .video-card:hover .play-btn { background: #00A651; transform: translate(-50%,-50%) scale(1.1); }
+        .video-info { padding: 20px 24px; }
+        .video-info h4 { font-family: 'Mulish', sans-serif; font-weight: 800; font-size: 16px; color: #fff; margin-bottom: 4px; }
+        .video-info p { font-size: 13px; color: #9ca3af; }
+        .video-card.featured { grid-column: span 2; }
+        .video-card.featured .video-thumb { aspect-ratio: 18/8; }
+
+        /* KEY TAKEAWAYS */
+        #takeaways { background: #f9fafb; }
+        .takeaways-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 48px; }
+        .takeaway-card { background: #fff; border-radius: 20px; padding: 36px 28px; border: 1px solid #f3f4f6; transition: all 0.4s; }
+        .takeaway-card:hover { box-shadow: 0 16px 40px rgba(0,0,0,0.06); transform: translateY(-4px); }
+        .takeaway-num { font-family: 'Mulish', sans-serif; font-weight: 900; font-size: 42px; color: #e5e7eb; margin-bottom: 16px; line-height: 1; }
+        .takeaway-card:hover .takeaway-num { color: #00A651; }
+        .takeaway-card h4 { font-family: 'Mulish', sans-serif; font-weight: 800; font-size: 18px; margin-bottom: 12px; color: #1A1A1A; }
+        .takeaway-card p { font-size: 15px; color: #6b7280; line-height: 1.7; }
+        .takeaway-tag { display: inline-flex; align-items: center; gap: 6px; margin-top: 16px; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #00A651; }
+        .takeaway-tag svg { width: 14px; height: 14px; }
+
+        /* SPEAKER SPOTLIGHT */
+        #speakers { background: #fff; }
+        .speakers-grid { display: flex; gap: 16px; margin-top: 36px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding: 4px 2px 14px; overscroll-behavior-x: contain; }
+        .speakers-grid::-webkit-scrollbar { display: none; }
+        .speaker-card { flex: 0 0 min(78vw, 260px); scroll-snap-align: start; text-align: center; padding: 28px 18px; border-radius: 20px; background: #f9fafb; border: 1px solid #f3f4f6; transition: all 0.4s; }
+        .speaker-card:hover { background: #fff; box-shadow: 0 16px 40px rgba(0,0,0,0.06); transform: translateY(-4px); }
+        .speaker-photo { width: 100px; height: 100px; border-radius: 50%; margin: 0 auto 16px; overflow: hidden; background: #e5e7eb; border: 3px solid #fff; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        .speaker-photo img { width: 100%; height: 100%; object-fit: cover; }
+        .speaker-photo .initials { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-family: 'Mulish', sans-serif; font-weight: 900; font-size: 28px; color: #fff; }
+        .speaker-photo--placeholder { display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #e8f5e9, #d1fae5); color: #15803d; }
+        .speaker-photo--placeholder svg { width: 46px; height: 46px; }
+        .speaker-card h4 { font-family: 'Mulish', sans-serif; font-weight: 800; font-size: 16px; margin-bottom: 4px; }
+        .speaker-card .role { font-size: 13px; color: #6b7280; line-height: 1.4; }
+        .speaker-card .org { font-size: 12px; color: #00A651; font-weight: 700; margin-top: 4px; }
+
+        /* TESTIMONIALS */
+        #testimonials {
+            background: linear-gradient(135deg, #001a0d 0%, #003d1f 100%);
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+        #testimonials::before {
+            content: "";
+            position: absolute; inset: 0; pointer-events: none; opacity: 0.15;
+            background-image:
+                linear-gradient(rgba(255,255,255,0.05) 1px,transparent 1px),
+                linear-gradient(90deg,rgba(255,255,255,0.05) 1px,transparent 1px);
+            background-size: 70px 70px;
+        }
+        #testimonials .section-inner { position: relative; z-index: 2; }
+        .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 48px; }
+        .testimonial-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.08); border-radius: 20px; padding: 32px 28px; transition: all 0.4s; }
+        .testimonial-card:hover { background: rgba(255,255,255,0.1); transform: translateY(-4px); }
+        .testimonial-quote { font-size: 36px; color: #00A651; font-family: 'Mulish', sans-serif; font-weight: 900; line-height: 1; margin-bottom: 12px; }
+        .testimonial-card p { font-size: 15px; color: rgba(255,255,255,0.75); line-height: 1.7; margin-bottom: 20px; font-style: italic; }
+        .testimonial-author { display: flex; align-items: center; gap: 12px; }
+        .testimonial-avatar { width: 44px; height: 44px; border-radius: 50%; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; font-family: 'Mulish', sans-serif; font-weight: 800; font-size: 16px; color: #FFD200; flex-shrink: 0; overflow: hidden; }
+        .testimonial-avatar img { width: 100%; height: 100%; object-fit: cover; }
+        .testimonial-avatar .initials { display: inline-flex; width: 100%; height: 100%; align-items: center; justify-content: center; }
+        .testimonial-name { font-family: 'Mulish', sans-serif; font-weight: 800; font-size: 14px; color: #fff; }
+        .testimonial-role { font-size: 12px; color: rgba(255,255,255,0.45); }
+
+        /* CTA / WHAT'S NEXT */
+        #whats-next { background: #fff; }
+        .cta-card {
+            background: linear-gradient(135deg, #f0fdf6 0%, #ecfeff 100%);
+            border: 1px solid #d1fae5;
+            border-radius: 28px;
+            padding: 64px 48px;
+            text-align: center;
+            margin-top: 48px;
+        }
+        .cta-card h3 { font-family: 'Mulish', sans-serif; font-weight: 900; font-size: clamp(1.6rem, 3vw, 2.5rem); margin-bottom: 16px; color: #1A1A1A; }
+        .cta-card p { font-size: 17px; color: #6b7280; line-height: 1.7; max-width: 600px; margin: 0 auto 32px; }
+        .cta-buttons { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+        .btn-green { background: #00A651; color: #fff; padding: 14px 40px; border-radius: 6px; font-family: 'Mulish', sans-serif; font-weight: 900; font-size: 14px; letter-spacing: 0.06em; display: inline-flex; align-items: center; gap: 10px; transition: all 0.3s; border: none; cursor: pointer; text-decoration: none; }
+        .btn-green:hover { filter: brightness(1.1); transform: translateY(-2px); box-shadow: 0 10px 20px rgba(0,166,81,0.3); }
+        .btn-outline { background: transparent; color: #1A1A1A; padding: 14px 40px; border-radius: 6px; font-family: 'Mulish', sans-serif; font-weight: 900; font-size: 14px; letter-spacing: 0.06em; display: inline-flex; align-items: center; gap: 10px; transition: all 0.3s; border: 2px solid #e5e7eb; cursor: pointer; text-decoration: none; }
+        .btn-outline:hover { border-color: #00A651; color: #00A651; transform: translateY(-2px); }
+
+        /* FOOTER */
+        footer { padding: 48px 40px; border-top: 1px solid #f3f4f6; }
+        .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+        .footer-logos { display: flex; align-items: center; gap: 24px; }
+        .footer-logos img { height: 32px; object-fit: contain; }
+        .footer-logos .div { width: 1px; height: 24px; background: #e5e7eb; }
+        .footer-copy { font-size: 12px; color: #9ca3af; font-weight: 500; }
+        .footer-links { display: flex; gap: 24px; }
+        .footer-links a { font-size: 11px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #6b7280; text-decoration: none; }
+        .footer-links a:hover { color: #891219; }
+
+        /* LIGHTBOX */
+        .lightbox-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.9); z-index: 9999; align-items: center; justify-content: center; padding: 40px; }
+        .lightbox-overlay.active { display: flex; }
+        .lightbox-overlay img { max-width: 90%; max-height: 85vh; object-fit: contain; border-radius: 12px; }
+        .lightbox-close { position: absolute; top: 20px; right: 20px; width: 44px; height: 44px; background: rgba(255,255,255,0.1); border: none; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.2s; }
+        .lightbox-close:hover { background: rgba(255,255,255,0.2); }
+        .lightbox-close svg { color: #fff; }
+
+        /* YOUTUBE VIDEO MODAL */
+        .video-modal { display: none; position: fixed; inset: 0; z-index: 10000; align-items: center; justify-content: center; padding: 24px; background: rgba(0,0,0,.88); }
+        .video-modal.active { display: flex; }
+        .video-modal__dialog { position: relative; width: min(100%, 1100px); aspect-ratio: 16 / 9; background: #000; box-shadow: 0 24px 80px rgba(0,0,0,.45); }
+        .video-modal__dialog iframe { display: block; width: 100%; height: 100%; border: 0; }
+        .video-modal__close { position: absolute; z-index: 1; top: -48px; right: 0; width: 40px; height: 40px; border: 0; border-radius: 50%; background: rgba(255,255,255,.15); color: #fff; cursor: pointer; font-size: 28px; line-height: 1; }
+        .video-modal__close:hover { background: rgba(255,255,255,.28); }
+
+        /* RESPONSIVE */
+        @media (max-width: 900px) {
+            .glass-nav { padding: 12px 20px; }
+            .nav-links { display: none; }
+            section { padding: 60px 20px; }
+            .hero { padding: 100px 20px 60px; }
+            .hero-inner { flex-direction: column; }
+            .hero-gov-visual { margin-top: 20px; }
+            .recap-grid { grid-template-columns: 1fr; gap: 32px; }
+            .numbers-grid { grid-template-columns: 1fr 1fr; }
+            .gallery-grid { grid-template-columns: none; }
+            .videos-grid { grid-template-columns: 1fr; }
+            .video-card.featured { grid-column: span 1; }
+            .video-card.featured .video-thumb { aspect-ratio: 16/9; }
+            .video-modal { padding: 20px; }
+            .takeaways-grid { grid-template-columns: 1fr; }
+            .speakers-grid { grid-template-columns: none; }
+            .testimonials-grid { grid-template-columns: 1fr; }
+            .footer-inner { flex-direction: column; text-align: center; }
+            .footer-logos { justify-content: center; }
+            .partner-strip { padding: 28px 20px; }
+            .partner-strip-inner { gap: 32px; flex-wrap: wrap; }
+            .partner-strip-inner img { height: 40px; }
+        }
+        @media (max-width: 600px) {
+            .numbers-grid { grid-template-columns: 1fr; }
+            .gallery-grid { grid-template-columns: none; }
+            .gallery-item.tall { aspect-ratio: 4/3; }
+            .speakers-grid { grid-template-columns: none; }
+            .cta-card { padding: 40px 24px; }
+            .hero-meta { flex-direction: column; gap: 12px; }
+        }
+
+        /* MOBILE-FIRST DEFAULTS */
+        .glass-nav { padding: 12px 20px; }
+        .nav-links { display: none; }
+        section { padding: 60px 20px; }
+        .hero { padding: 100px 20px 60px; }
+        .hero-inner { flex-direction: column; }
+        .hero-gov-visual { margin-top: 20px; }
+        .recap-grid, .numbers-grid, .videos-grid, .takeaways-grid, .testimonials-grid { grid-template-columns: 1fr; }
+        .recap-grid { gap: 32px; }
+        .video-card.featured { grid-column: span 1; }
+        .video-card.featured .video-thumb { aspect-ratio: 16/9; }
+        .takeaways-grid, .testimonials-grid { gap: 20px; }
+        .footer-inner { flex-direction: column; text-align: center; }
+        .footer-logos { justify-content: center; }
+        .partner-strip { padding: 28px 20px; }
+        .partner-strip-inner { gap: 32px; flex-wrap: wrap; }
+        .partner-strip-inner img { height: 40px; }
+        .cta-card { padding: 40px 24px; }
+        .hero-meta { flex-direction: column; gap: 12px; }
+
+        @media (min-width: 601px) {
+            .numbers-grid { grid-template-columns: repeat(2, 1fr); }
+            .takeaways-grid { grid-template-columns: repeat(2, 1fr); }
+            .testimonials-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (min-width: 901px) {
+            .glass-nav { padding: 12px 40px; }
+            .nav-links { display: flex; }
+            section { padding: 80px 40px; }
+            .hero { padding: 120px 40px 80px; }
+            .hero-inner { flex-direction: row; }
+            .hero-gov-visual { margin-top: 0; }
+            .recap-grid { grid-template-columns: 1fr 1fr; gap: 60px; }
+            .numbers-grid { grid-template-columns: repeat(4, 1fr); }
+            .videos-grid { grid-template-columns: 1fr 1fr; }
+            .video-card.featured { grid-column: span 2; }
+            .video-card.featured .video-thumb { aspect-ratio: 18/8; }
+            .takeaways-grid { grid-template-columns: repeat(3, 1fr); }
+            .testimonials-grid { grid-template-columns: repeat(3, 1fr); }
+            .footer-inner { flex-direction: row; text-align: left; }
+            .partner-strip { padding: 32px 40px; }
+            .partner-strip-inner { gap: 60px; flex-wrap: nowrap; }
+            .partner-strip-inner img { height: 80px; }
+            .cta-card { padding: 64px 48px; }
+            .hero-meta { flex-direction: row; gap: 28px; }
+        }
+
+        /* Scroll animations */
+        .fade-up { opacity: 0; transform: translateY(30px); transition: all 0.7s ease; }
+        .fade-up.visible { opacity: 1; transform: translateY(0); }
+    </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="glass-nav">
+    <div class="nav-logo">
+        <a href="https://tranter-it.com/" target="_blank" rel="noopener noreferrer">
+            <img src="https://tranter-it.com/wp-content/uploads/2026/02/TRANTER-LOGO1-1-1-e1775125547429.png" alt="Tranter IT">
+        </a>
+        <div class="divider"></div>
+        <img src="https://tranter-it.com/wp-content/uploads/2026/04/manage-engine-logo.png" alt="ManageEngine">
+    </div>
+    <div class="nav-links">
+        <a href="#recap">Recap</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#videos">Videos</a>
+        <a href="#takeaways">Takeaways</a>
+        <a href="#speakers">Speakers</a>
+        <a href="#whats-next">What's Next</a>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+    <svg class="hero-bg-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <path fill="#00A651" d="M47.1,-63.4C60.1,-56.3,69.1,-41.1,73.5,-25.1C77.9,-9.1,77.7,7.8,71.7,21.8C65.7,35.8,53.9,46.9,40.4,54.7C26.9,62.5,11.7,67,-3.7,72.1C-19.1,77.2,-34.7,82.9,-47.5,77.4C-60.3,71.9,-70.3,55.2,-75.9,38.1C-81.5,21,-82.7,3.5,-78.9,-12.7C-75.1,-28.9,-66.3,-43.8,-53.9,-51.1C-41.5,-58.4,-25.5,-58.1,-10.1,-58.5C5.3,-58.9,20.6,-59.9,34.1,-60.5C47.6,-61.1,59.3,-61.3,47.1,-63.4Z" transform="translate(100 100)"/>
+    </svg>
+    <div class="hero-inner">
+        <div class="hero-text">
+            <div class="badge">
+                <div class="badge-dot"></div>
+                <span>Event Completed · July 15, 2026</span>
+            </div>
+            <h1>A Landmark Day for<br><span class="green">Digital Public</span><br><span class="yellow">Infrastructure</span></h1>
+            <p>Nigeria's top Government IT Leaders, CIOs and CTOs came together for a transformative closed-door session on modernizing IT operations and securing digital infrastructure.</p>
+            <div class="hero-meta">
+                <div class="hero-meta-item">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                    <span>July 15, 2026</span>
+                </div>
+                <div class="hero-meta-item">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    <span>Abuja Continental Hotel</span>
+                </div>
+                <div class="hero-meta-item">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    <span>8:00 AM – 3:30 PM WAT</span>
+                </div>
+            </div>
+        </div>
+        <div class="hero-gov-visual">
+            <!-- REPLACE: Hero event photo -->
+            <img src="https://byh.yjc.mybluehost.me/website_44c9bbcd/wp-content/uploads/2026/08/235_ITGOV-2026_150726-scaled.jpg" alt="ITGov Nigeria 2026 Event">
+        </div>
+    </div>
+</section>
+
+<!-- PARTNER STRIP -->
+<div class="partner-strip">
+    <div class="partner-strip-inner">
+        <img src="https://tranter-it.com/wp-content/uploads/2026/02/TRANTER-LOGO1-1-1-e1775125547429.png" alt="Tranter IT">
+        <img src="https://tranter-it.com/wp-content/uploads/2026/04/manage-engine-logo.png" alt="ManageEngine">
+    </div>
+</div>
+
+<!-- EVENT RECAP -->
+<section id="recap" class="fade-up">
+    <div class="section-inner">
+        <div class="accent-line"></div>
+        <h2 class="section-title">The Day That Shaped Nigeria's Digital Future</h2>
+        <p class="section-sub">A look back at a groundbreaking session that brought together the brightest minds in government technology.</p>
+
+        <div class="recap-grid" style="margin-top:48px;">
+            <div class="recap-image">
+                <!-- REPLACE: Recap photo 1 -->
+                <img src="https://byh.yjc.mybluehost.me/website_44c9bbcd/wp-content/uploads/2026/08/247_ITGOV-2026_150726-scaled.jpg" alt="Event overview">
+            </div>
+            <div class="recap-text">
+                <h3>This Was Just the Beginning</h3>
+                <p>On July 15, 2026, the Abuja Continental Hotel became the epicenter of Nigeria's digital transformation conversation. Government IT leaders from across federal and state agencies gathered for an exclusive, closed-door session designed to tackle the most pressing challenges in public sector technology.</p>
+                <p>From endpoint security to unified IT governance, every session was crafted to deliver actionable insights — not just theory. The energy in the room was palpable as CIOs and CTOs exchanged strategies, debated frameworks, and forged partnerships that will shape Nigeria's digital infrastructure for years to come.</p>
+                <p>Powered by <strong>Tranter IT</strong> and <strong>ManageEngine</strong>, ITGov Nigeria 2026 set a new standard for what government technology events can achieve.</p>
+            </div>
+        </div>
+
+        <div class="recap-grid" style="margin-top:60px;">
+            <div class="recap-text">
+                <h3>Conversations That Mattered</h3>
+                <p>Unlike traditional conferences, ITGov Nigeria 2026 was built around genuine dialogue. The intimate format encouraged candid discussions about real-world challenges — from legacy system modernization to cybersecurity threats facing critical national infrastructure.</p>
+                <p>Attendees didn't just listen — they participated. Interactive workshops, live product demos, and peer-to-peer knowledge exchanges made this event a truly collaborative experience. The connections made here will continue to drive impact across Nigeria's public sector.</p>
+            </div>
+            <div class="recap-image">
+                <!-- REPLACE: Recap photo 2 -->
+                <img src="https://byh.yjc.mybluehost.me/website_44c9bbcd/wp-content/uploads/2026/08/387_ITGOV-2026_150726-scaled.jpg" alt="Panel discussion">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- KEY NUMBERS -->
+<section id="key-numbers" class="fade-up">
+    <div class="section-inner">
+        <div class="accent-line" style="background:#FFD200;"></div>
+        <h2 class="section-title" style="color:#fff;">ITGov 2026 By the Numbers</h2>
+        <p class="section-sub" style="color:rgba(255,255,255,0.55);">The impact of a single day, measured in the connections and conversations that matter.</p>
+
+        <div class="numbers-grid">
+            <div class="number-card">
+                <div class="number-icon green">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </div>
+                <div class="number-val green" data-target="150">0</div>
+                <div class="number-label">IT Leaders Attended</div>
+            </div>
+            <div class="number-card">
+                <div class="number-icon blue">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                </div>
+                <div class="number-val blue" data-target="12">0</div>
+                <div class="number-label">Expert Sessions</div>
+            </div>
+            <div class="number-card">
+                <div class="number-icon yellow">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                </div>
+                <div class="number-val yellow" data-target="8">0</div>
+                <div class="number-label">Industry Speakers</div>
+            </div>
+            <div class="number-card">
+                <div class="number-icon red">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+                </div>
+                <div class="number-val red" data-target="35">0</div>
+                <div class="number-label">Agencies Represented</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PHOTO GALLERY -->
+<section id="gallery" class="fade-up">
+    <div class="section-inner">
+        <div class="accent-line green"></div>
+        <h2 class="section-title">Event Gallery</h2>
+        <p class="section-sub">Moments captured from a day of learning, collaboration, and digital transformation.</p>
+
+        <div class="gallery-grid" role="region" aria-label="Event gallery carousel" tabindex="0">
+            <div class="gallery-item tall" onclick="openLightbox(this)">
+                <!-- REPLACE: Gallery image 1 -->
+                <img src="https://byh.yjc.mybluehost.me/website_44c9bbcd/wp-content/uploads/2026/08/162_ITGOV-2026_150726-scaled.jpg" alt="Gallery photo 1">
+                <div class="gallery-overlay"><span>Opening Keynote</span></div>
+            </div>
+            <div class="gallery-item" onclick="openLightbox(this)">
+                <!-- REPLACE: Gallery image 2 -->
+                <img src="https://byh.yjc.mybluehost.me/website_44c9bbcd/wp-content/uploads/2026/08/374_ITGOV-2026_150726-scaled.jpg" alt="Gallery photo 2">
+                <div class="gallery-overlay"><span>Panel Discussion</span></div>
+            </div>
+            <div class="gallery-item" onclick="openLightbox(this)">
+                <!-- REPLACE: Gallery image 3 -->
+                <img src="https://byh.yjc.mybluehost.me/website_44c9bbcd/wp-content/uploads/2026/08/463_ITGOV-2026_150726-scaled.jpg" alt="Gallery photo 3">
+                <div class="gallery-overlay"><span>Networking Break</span></div>
+            </div>
+            <div class="gallery-item" onclick="openLightbox(this)">
+                <!-- REPLACE: Gallery image 4 -->
+                <img src="https://byh.yjc.mybluehost.me/website_44c9bbcd/wp-content/uploads/2026/08/352_ITGOV-2026_150726-scaled.jpg" alt="Gallery photo 4">
+                <div class="gallery-overlay"><span>Live Demo Session</span></div>
+            </div>
+            <div class="gallery-item" onclick="openLightbox(this)">
+                <!-- REPLACE: Gallery image 5 -->
+                <img src="https://byh.yjc.mybluehost.me/website_44c9bbcd/wp-content/uploads/2026/08/313_ITGOV-2026_150726-scaled.jpg" alt="Gallery photo 5">
+                <div class="gallery-overlay"><span>Fireside Chat</span></div>
+            </div>
+            <div class="gallery-item" onclick="openLightbox(this)">
+                <!-- REPLACE: Gallery image 6 -->
+                <img src="https://byh.yjc.mybluehost.me/website_44c9bbcd/wp-content/uploads/2026/08/351_ITGOV-2026_150726-scaled.jpg" alt="Gallery photo 6">
+                <div class="gallery-overlay"><span>Closing Ceremony</span></div>
+            </div>
+            <div class="gallery-item" onclick="openLightbox(this)">
+                <!-- REPLACE: Gallery image 7 -->
+                <img src="https://byh.yjc.mybluehost.me/website_44c9bbcd/wp-content/uploads/2026/08/189_ITGOV-2026_150726-scaled.jpg" alt="Gallery photo 7">
+                <div class="gallery-overlay"><span>Group Photo</span></div>
+            </div>
+            <div class="gallery-item" onclick="openLightbox(this)">
+                <!-- REPLACE: Gallery image 8 -->
+                <img src="https://byh.yjc.mybluehost.me/website_44c9bbcd/wp-content/uploads/2026/08/197_ITGOV-2026_150726-scaled.jpg" alt="Gallery photo 8">
+                <div class="gallery-overlay"><span>Workshop Session</span></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox-overlay" id="lightbox" onclick="closeLightbox()">
+    <button class="lightbox-close" onclick="closeLightbox()">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <img id="lightbox-img" src="" alt="Gallery full view">
+</div>
+
+<div class="video-modal" id="video-modal" role="dialog" aria-modal="true" aria-label="Video player" onclick="if (event.target === this) closeVideo()">
+    <div class="video-modal__dialog">
+        <button class="video-modal__close" type="button" onclick="closeVideo()" aria-label="Close video">×</button>
+        <iframe id="video-player" title="ITGov Nigeria 2026 video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+</div>
+
+<!-- VIDEO HIGHLIGHTS -->
+<section id="videos" class="fade-up">
+    <div class="section-inner">
+        <div class="accent-line red"></div>
+        <h2 class="section-title">Video Highlights</h2>
+        <p class="section-sub">Relive the key moments from ITGov Nigeria 2026 — from keynotes to candid conversations.</p>
+
+        <div class="videos-grid">
+            <!-- Featured Video -->
+            <div class="video-card featured" data-youtube-id="81sa5c5j8u4" onclick="playVideo(this)" role="button" tabindex="0" aria-label="Play ITGov Nigeria 2026 teaser">
+                <div class="video-thumb">
+                    <img src="https://i.ytimg.com/vi/81sa5c5j8u4/hqdefault.jpg" alt="ITGov Nigeria 2026 teaser">
+                    <div class="play-btn">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                    </div>
+                </div>
+                <div class="video-info">
+                    <h4>ITGov Nigeria 2026 Teaser</h4>
+                    <p>A preview of a transformative day in Abuja</p>
+                </div>
+            </div>
+
+            <!-- Video 2 -->
+            <div class="video-card" data-youtube-id="abdVKV9CveI" onclick="playVideo(this)" role="button" tabindex="0" aria-label="Play keynote address">
+                <div class="video-thumb">
+                    <img src="https://i.ytimg.com/vi/abdVKV9CveI/hqdefault.jpg" alt="Keynote address at ITGov 2026">
+                    <div class="play-btn">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                    </div>
+                </div>
+                <div class="video-info">
+                    <h4>Keynote Address</h4>
+                    <p>Dr. Abisoye Coker-Odusote, NIMC Director-General</p>
+                </div>
+            </div>
+
+            <!-- Video 3 -->
+            <div class="video-card" data-youtube-id="CFKlsyyAm6Q" onclick="playVideo(this)" role="button" tabindex="0" aria-label="Play IT security landscape session">
+                <div class="video-thumb">
+                    <img src="https://i.ytimg.com/vi/CFKlsyyAm6Q/hqdefault.jpg" alt="Nigeria IT security landscape session">
+                    <div class="play-btn">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                    </div>
+                </div>
+                <div class="video-info">
+                    <h4>Nigeria's Evolving IT Security Landscape</h4>
+                    <p>ITGov 2026 session spotlight</p>
+                </div>
+            </div>
+
+            <!-- Video 4 -->
+            <div class="video-card" data-youtube-id="-vWhAoGEMlI" onclick="playVideo(this)" role="button" tabindex="0" aria-label="Play IT security landscape session part two">
+                <div class="video-thumb">
+                    <img src="https://i.ytimg.com/vi/-vWhAoGEMlI/hqdefault.jpg" alt="Nigeria IT security landscape session part two">
+                    <div class="play-btn">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                    </div>
+                </div>
+                <div class="video-info">
+                    <h4>Nigeria's Evolving IT Security Landscape — Part 2</h4>
+                    <p>ITGov 2026 session spotlight</p>
+                </div>
+            </div>
+
+            <!-- Video 5 -->
+            <div class="video-card" data-youtube-id="C2YAQIaChe4" onclick="playVideo(this)" role="button" tabindex="0" aria-label="Play digital infrastructure rollout session">
+                <div class="video-thumb">
+                    <img src="https://i.ytimg.com/vi/C2YAQIaChe4/hqdefault.jpg" alt="Nigeria digital infrastructure rollout video">
+                    <div class="play-btn">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                    </div>
+                </div>
+                <div class="video-info">
+                    <h4>Stakeholders Meet Over Digital Infrastructure Rollout</h4>
+                    <p>ITGov 2026 event highlight</p>
+                </div>
+            </div>
+
+            <div class="video-card" data-youtube-id="l1rYHeZWu7o" onclick="playVideo(this)" role="button" tabindex="0" aria-label="Play cybersecurity experts session">
+                <div class="video-thumb">
+                    <img src="https://i.ytimg.com/vi/l1rYHeZWu7o/hqdefault.jpg" alt="Cybersecurity experts at ITGov 2026">
+                    <div class="play-btn">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                    </div>
+                </div>
+                <div class="video-info">
+                    <h4>Cybersecurity Experts Advocate Stronger Digital Protection</h4>
+                    <p>ITGov 2026 event highlight</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- KEY TAKEAWAYS -->
+<section id="takeaways" class="fade-up">
+    <div class="section-inner">
+        <div class="accent-line blue"></div>
+        <h2 class="section-title">Key Takeaways</h2>
+        <p class="section-sub">The insights and themes that defined ITGov Nigeria 2026 — and will shape the year ahead.</p>
+
+        <div class="takeaways-grid">
+            <div class="takeaway-card">
+                <div class="takeaway-num">01</div>
+                <h4>Unified IT Management Is Non-Negotiable</h4>
+                <p>Fragmented tools create blind spots. Government agencies must consolidate IT operations under unified platforms to achieve visibility, compliance, and efficiency at scale.</p>
+                <div class="takeaway-tag">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                    IT Operations
+                </div>
+            </div>
+            <div class="takeaway-card">
+                <div class="takeaway-num">02</div>
+                <h4>Zero Trust Must Be the Default Posture</h4>
+                <p>With rising cyber threats targeting government infrastructure, adopting zero-trust security frameworks is no longer optional — it's a matter of national security.</p>
+                <div class="takeaway-tag">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                    Cybersecurity
+                </div>
+            </div>
+            <div class="takeaway-card">
+                <div class="takeaway-num">03</div>
+                <h4>Data Sovereignty Requires Local Action</h4>
+                <p>Nigeria's digital sovereignty depends on hosting critical data within national borders and building local capacity for data center operations and cloud governance.</p>
+                <div class="takeaway-tag">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                    Data Governance
+                </div>
+            </div>
+            <div class="takeaway-card">
+                <div class="takeaway-num">04</div>
+                <h4>Collaboration Beats Isolation</h4>
+                <p>The most effective digital transformation strategies come from cross-agency collaboration. Siloed approaches waste resources and duplicate effort across government bodies.</p>
+                <div class="takeaway-tag">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                    Strategy
+                </div>
+            </div>
+            <div class="takeaway-card">
+                <div class="takeaway-num">05</div>
+                <h4>Endpoint Security Is the New Perimeter</h4>
+                <p>With remote work and BYOD policies expanding across government, securing every endpoint — not just the network — has become the frontline of cyber defense.</p>
+                <div class="takeaway-tag">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                    Endpoint Management
+                </div>
+            </div>
+            <div class="takeaway-card">
+                <div class="takeaway-num">06</div>
+                <h4>Invest in People, Not Just Technology</h4>
+                <p>Technology is only as effective as the people operating it. Upskilling government IT teams and building a pipeline of local talent is critical for sustainable digital growth.</p>
+                <div class="takeaway-tag">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                    Capacity Building
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SPEAKER SPOTLIGHT -->
+<section id="speakers" class="fade-up">
+    <div class="section-inner">
+        <div class="accent-line"></div>
+        <h2 class="section-title">Speaker Spotlight</h2>
+        <p class="section-sub">The voices that led the conversation at ITGov Nigeria 2026.</p>
+
+        <div class="speakers-grid" role="region" aria-label="Speaker spotlight carousel" tabindex="0">
+            <div class="speaker-card">
+                <div class="speaker-photo">
+                    <!-- REPLACE: Speaker photo 1 -->
+                    <img src="https://tranter-it.com/wp-content/uploads/2026/07/Abisoye-Coker-Odusote-thumbnail.webp" alt="Speaker 1">
+                </div>
+                <h4>Engr. Abisoye Coker-Odusote</h4>
+                <div class="role">Director General/Chief Executive Officer</div>
+                <div class="org">National Identity Management Commission (NIMC)</div>
+            </div>
+            <div class="speaker-card">
+                <div class="speaker-photo">
+                    <!-- REPLACE: Speaker photo 2 -->
+                    <img src="https://tranter-it.com/wp-content/uploads/2026/07/Dasuki-Ibrahim-Arabi-thumbnail.webp" alt="Speaker 2">
+                </div>
+                <h4>Mr. Dasuki Ibrahim Arabi</h4>
+                <div class="role">Director-General/Chief Executive Officer</div>
+                <div class="org">National Identity Management Commission (NIMC)</div>
+            </div>
+            <div class="speaker-card">
+                <div class="speaker-photo">
+                    <!-- REPLACE: Speaker photo 3 -->
+                    <img src="https://tranter-it.com/wp-content/uploads/2026/07/Solomon-Raj-K.webp" alt="Speaker 3">
+                </div>
+                <h4> Mr. Solomon Raj K</h4>
+                <div class="role">Associate Director</div>
+                <div class="org">ManageEngine</div>
+            </div>
+            <div class="speaker-card">
+                <div class="speaker-photo">
+                    <!-- REPLACE: Speaker photo 4 -->
+                    <img src="https://tranter-it.com/wp-content/uploads/2026/07/Lare-Ayoola-thumbnail.webp" alt="Speaker 4">
+                </div>
+                <h4>Dr. Lare Ayoola</h4>
+                <div class="role">CEO, Tranter IT and President</div>
+                <div class="org">ITAN</div>
+            </div>
+            <div class="speaker-card">
+                <div class="speaker-photo">
+                    <!-- REPLACE: Speaker photo 5 -->
+                    <img src="https://tranter-it.com/wp-content/uploads/2026/07/Sam-Ifeanyi-Hart.webp" alt="Speaker 5">
+                </div>
+                <h4>Mr. Sam Ifeanyi Hart</h4>
+                <div class="role">Chief of Staff</div>
+                <div class="org">House of Representatives of the Deputy Speaker of Nigeria</div>
+            </div>
+            <div class="speaker-card">
+                <div class="speaker-photo">
+                    <!-- REPLACE: Speaker photo 6 -->
+                    <img src="https://tranter-it.com/wp-content/uploads/2026/07/Salisu-Kaka.webp" alt="Speaker 6">
+                </div>
+                <h4>Dr. Engr. Salisu Kaka</h4>
+                <div class="role">Director, e-Government & Digital Economy Development</div>
+                <div class="org">NITDA</div>
+            </div>
+            <div class="speaker-card">
+                <div class="speaker-photo">
+                    <!-- REPLACE: Speaker photo 7 -->
+                    <img src="https://tranter-it.com/wp-content/uploads/2026/07/Akintayo-Bamisaye.webp" alt="Speaker 7">
+                </div>
+                <h4>Mr. Akintayo Bamisaye</h4>
+                <div class="role">Head of Research and Digital Innovation</div>
+                <div class="org">GBB</div>
+            </div>
+            <div class="speaker-card">
+                <div class="speaker-photo">
+                    <!-- REPLACE: Speaker photo 8 -->
+                    <img src="https://tranter-it.com/wp-content/uploads/2026/07/Abel-Edoka.webp" alt="Speaker 8">
+                </div>
+                <h4>Mr. Abel Edoka</h4>
+                <div class="role">Global Communications Manager</div>
+                <div class="org">Tranter IT</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials" class="fade-up">
+    <div class="section-inner">
+        <div class="accent-line" style="background:#FFD200;"></div>
+        <h2 class="section-title" style="color:#fff;">What Attendees Said</h2>
+        <p class="section-sub" style="color:rgba(255,255,255,0.5);">Hear directly from the IT leaders who were in the room.</p>
+
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="testimonial-quote">"</div>
+                <p>This was the most relevant government IT event I've attended in years. The discussions were practical, the speakers were knowledgeable, and the networking was invaluable.</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">
+                        <!-- REPLACE: Testimonial avatar 1 -->
+                        <span class="initials">ME</span>
+                    </div>
+                    <div>
+                        <div class="testimonial-name">Martin O. Egua</div>
+                        <div class="testimonial-role">PM, ICT - National Gallery of Art</div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-quote">"</div>
+                <p>I came expecting a sales pitch and left with a genuine roadmap for transforming our IT operations. Tranter IT and ManageEngine truly understand government challenges.</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">
+                        <!-- REPLACE: Testimonial avatar 2 -->
+                        <span class="initials">LT</span>
+                    </div>
+                    <div>
+                        <div class="testimonial-name">Linda Tsav-Ezema</div>
+                        <div class="testimonial-role">WAN Administrator - NIMC</div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-quote">"</div>
+                <p>The zero-trust session alone was worth the entire day. I've already started implementing some of the frameworks discussed. Looking forward to ITGov 2027.</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">
+                        <!-- REPLACE: Testimonial avatar 3 -->
+                        <span class="initials">GA</span>
+                    </div>
+                    <div>
+                        <div class="testimonial-name">Ganiyat Abdul-rasheed</div>
+                        <div class="testimonial-role">Principal Technical Instructor  - NIMC</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- WHAT'S NEXT -->
+<section id="whats-next" class="fade-up">
+    <div class="section-inner">
+        <div class="accent-line green"></div>
+        <h2 class="section-title">This Was Just the Beginning</h2>
+        <p class="section-sub">ITGov Nigeria 2026 planted the seeds. Now the real work begins — and we want you to be part of what's coming next.</p>
+
+        <div class="cta-card">
+            <div style="margin-bottom:24px;">
+                <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="margin:0 auto;">
+                    <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
+                </svg>
+            </div>
+            <h3>Stay Connected for <span style="color:#00A651;">ITGov 2027</span></h3>
+            <p>We're already planning the next chapter. Join our community to get early access to announcements, speaker reveals, exclusive content from this year's sessions, and priority registration for ITGov Nigeria 2027.</p>
+            <div class="cta-buttons">
+                <a href="https://wa.me/2348183405221" target="_blank" class="btn-green">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    Join WhatsApp Community
+                </a>
+                <a href="https://tranter-it.com/contact-us/" class="btn-outline">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    Contact Us
+                </a>
+            </div>
+            <div style="margin-top:28px; font-size:13px; color:#9ca3af;">
+                <span style="color:#00A651; font-weight:700;">●</span> &nbsp;Early-bird notifications &nbsp;&nbsp; <span style="color:#FFD200; font-weight:700;">●</span> &nbsp;Exclusive session recordings &nbsp;&nbsp; <span style="color:#004297; font-weight:700;">●</span> &nbsp;Priority registration
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-inner">
+        <div class="footer-logos">
+            <a href="https://tranter-it.com/" target="_blank" rel="noopener noreferrer">
+                <img src="https://tranter-it.com/wp-content/uploads/2026/02/TRANTER-LOGO1-1-1-e1775125547429.png" alt="Tranter IT">
+            </a>
+            <div class="div"></div>
+            <img src="https://tranter-it.com/wp-content/uploads/2026/04/manage-engine-logo.png" alt="ManageEngine">
+        </div>
+        <div class="footer-copy">© 2026 Tranter IT Infrastructure Services Ltd. All rights reserved.</div>
+        <div class="footer-links">
+            <a href="https://tranter-it.com/" target="_blank">Tranter IT</a>
+            <a href="https://www.manageengine.com/" target="_blank">ManageEngine</a>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Scroll animation
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    // Counter animation
+    const counterObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const counters = entry.target.querySelectorAll('.number-val[data-target]');
+                counters.forEach(counter => {
+                    const target = parseInt(counter.getAttribute('data-target'));
+                    const duration = 2000;
+                    const step = target / (duration / 16);
+                    let current = 0;
+                    const timer = setInterval(() => {
+                        current += step;
+                        if (current >= target) {
+                            counter.textContent = target + '+';
+                            clearInterval(timer);
+                        } else {
+                            counter.textContent = Math.floor(current);
+                        }
+                    }, 16);
+                });
+                counterObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.3 });
+
+    const numbersSection = document.getElementById('key-numbers');
+    if (numbersSection) counterObserver.observe(numbersSection);
+
+    // Lightbox
+    function openLightbox(el) {
+        const img = el.querySelector('img');
+        if (img) {
+            document.getElementById('lightbox-img').src = img.src;
+            document.getElementById('lightbox').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+    }
+
+    function closeLightbox() {
+        document.getElementById('lightbox').classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            closeLightbox();
+            closeVideo();
+        }
+    });
+
+    // YouTube videos begin only after a visitor actively chooses one.
+    function playVideo(el) {
+        const videoId = el.getAttribute('data-youtube-id');
+        if (!videoId) return;
+        document.getElementById('video-player').src = 'https://www.youtube.com/embed/' + videoId + '?autoplay=1&rel=0';
+        document.getElementById('video-modal').classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeVideo() {
+        const modal = document.getElementById('video-modal');
+        const player = document.getElementById('video-player');
+        if (!modal || !player) return;
+        modal.classList.remove('active');
+        player.src = '';
+        document.body.style.overflow = '';
+    }
+
+    document.querySelectorAll('.video-card[role="button"]').forEach(card => {
+        card.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                playVideo(card);
+            }
+        });
+    });
+
+
+    // Touch-friendly horizontal carousels with keyboard support.
+    document.querySelectorAll('.gallery-grid, .speakers-grid').forEach(carousel => {
+        carousel.addEventListener('keydown', (event) => {
+            if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
+            event.preventDefault();
+            carousel.scrollBy({ left: event.key === 'ArrowRight' ? carousel.clientWidth * 0.82 : -carousel.clientWidth * 0.82, behavior: 'smooth' });
+        });
+    });
+
+    // Smooth scroll for nav links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
