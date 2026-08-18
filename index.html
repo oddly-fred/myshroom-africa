@@ -115,12 +115,12 @@
         .numbers-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 48px; }
         .number-card { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; padding: 40px 28px; text-align: center; transition: all 0.4s; }
         .number-card:hover { background: rgba(255,255,255,0.14); transform: translateY(-4px); }
-        .number-icon { width: 56px; height: 56px; border-radius: 16px; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; }
-        .number-icon.green { background: rgba(0,166,81,0.2); color: #00A651; }
-        .number-icon.blue { background: rgba(0,66,151,0.2); color: #7DB8FF; }
-        .number-icon.yellow { background: rgba(255,210,0,0.2); color: #FFD200; }
-        .number-icon.red { background: rgba(137,18,25,0.2); color: #FF8A8A; }
-        .number-icon svg { width: 26px; height: 26px; }
+        .number-icon { width: 56px; height: 56px; border-radius: 16px; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; background: rgba(245,245,240,0.14); border: 1px solid rgba(245,245,240,0.42); color: #F5F5F0; }
+        .number-icon.green,
+        .number-icon.blue,
+        .number-icon.yellow,
+        .number-icon.red { background: rgba(245,245,240,0.14); border-color: rgba(245,245,240,0.42); color: #F5F5F0; }
+        .number-icon svg { width: 26px; height: 26px; stroke: currentColor; }
         .number-val { font-family: 'Mulish', sans-serif; font-weight: 900; font-size: clamp(2.2rem, 4vw, 3.5rem); margin-bottom: 4px; }
         .number-val.green,
         .number-val.blue,
@@ -147,7 +147,7 @@
 
         /* VIDEO HIGHLIGHTS */
         #videos { background: #fff; }
-        .videos-grid { display: grid; grid-template-columns: 1fr; gap: 20px; margin-top: 36px; max-width: 760px; }
+        .videos-grid { display: grid; grid-template-columns: 1fr; gap: 20px; width: 100%; max-width: 760px; margin: 36px auto 0; }
         .video-card { border-radius: 20px; overflow: hidden; background: #111827; position: relative; cursor: pointer; transition: all 0.4s; }
         .video-card:hover { transform: translateY(-4px); box-shadow: 0 20px 50px rgba(0,0,0,0.15); }
         .video-thumb { width: 100%; aspect-ratio: 16/9; background: #1f2937; position: relative; overflow: hidden; }
@@ -329,7 +329,7 @@
             .hero-gov-visual { margin-top: 0; }
             .recap-grid { grid-template-columns: 1fr 1fr; gap: 60px; }
             .numbers-grid { grid-template-columns: repeat(4, 1fr); }
-            .videos-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+            .videos-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); width: 100%; max-width: 760px; margin-left: auto; margin-right: auto; }
             .video-card.featured { grid-column: auto; }
             .video-card.featured .video-thumb { aspect-ratio: 16/9; }
             .takeaways-grid { grid-template-columns: repeat(3, 1fr); }
