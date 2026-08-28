@@ -1,0 +1,1 @@
+.tranter-admin-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:0 20px}.tranter-admin-grid p{margin:8px 0 12px}.tranter-admin-grid input{max-width:100%}@media(max-width:700px){.tranter-admin-grid{grid-template-columns:1fr}}
