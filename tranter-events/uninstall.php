@@ -1,6 +1,6 @@
 <?php
 if (!defined('WP_UNINSTALL_PLUGIN')) exit;
-$posts=get_posts(['post_type'=>'tranter_event','post_status'=>'any','numberposts'=>-1,'fields'=>'ids']);
-foreach($posts as $id){wp_delete_post($id,true);}
-foreach(['tranter_event_type','tranter_partner'] as $tax){$terms=get_terms(['taxonomy'=>$tax,'hide_empty'=>false,'fields'=>'ids']);if(!is_wp_error($terms))foreach($terms as $term)wp_delete_term($term,$tax);}
+// Keep event posts, taxonomies, metadata, and media references intact so replacing
+// the plugin cannot erase events that staff already entered.
 delete_option('tranter_events_settings');
+delete_option('tranter_events_data_version');
