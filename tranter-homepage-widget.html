@@ -480,15 +480,19 @@ d.readyState==='loading'?d.addEventListener('DOMContentLoaded',init):init();
       '</div></article>';
   }
   function load() {
-    fetch(pageUrl, { credentials:'same-origin', headers:{'X-Requested-With':'XMLHttpRequest'} })
+    /* Do not send X-Requested-With here: the live site's security layer rejects it with HTTP 406. */
+    fetch(new URL(pageUrl, document.baseURI).href, { credentials:'same-origin', cache:'no-store' })
       .then(function (response) { if (!response.ok) throw new Error('Event page unavailable'); return response.text(); })
       .then(function (html) {
         var doc = new DOMParser().parseFromString(html, 'text/html');
-        var cards = [].slice.call(doc.querySelectorAll('#tranter-upcoming .tranter-event-card')).slice(0, 3);
+        /* Support the current plugin section and a theme-wrapped event grid. */
+        var cards = [].slice.call(doc.querySelectorAll('#tranter-upcoming .tranter-event-card, .tranter-event-grid[data-events-results] .tranter-event-card')).slice(0, 3);
         if (!cards.length) { status.textContent = 'No upcoming events are scheduled right now.'; return; }
         grid.innerHTML = cards.map(cardMarkup).join('');
       })
-      .catch(function () { status.textContent = 'Upcoming events are temporarily unavailable. Please see the events page for the latest schedule.'; });
+      .catch(function () {
+        status.innerHTML = 'Upcoming events are temporarily unavailable. <a href="' + escapeHtml(pageUrl) + '">View the events page</a>.';
+      });
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', load); else load();
 })();
