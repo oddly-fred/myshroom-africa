@@ -95,6 +95,8 @@ html[data-tranter-market="ng"] [data-tranter-region~="global"]:not([data-tranter
 /* ---- why tranter ---- */
 .tit-why{display:grid;gap:clamp(32px,5vw,72px);grid-template-columns:.8fr 1.2fr;align-items:start}
 .tit-sticky{position:sticky;top:110px}
+#why-tranter{overflow:visible}
+#why-tranter .tit-sticky{align-self:start}
 /* ---- stats ---- */
 .tit-stats{display:grid;gap:28px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
 .tit-stat{padding-left:22px;border-left:2px solid var(--line)}
@@ -168,7 +170,7 @@ html[data-tranter-market="ng"] [data-tranter-region~="global"]:not([data-tranter
 .tit-cta{text-align:center;background:radial-gradient(700px 360px at 50% 0%,rgba(0,166,81,.35),transparent 70%),var(--ink)}
 .tit-cta .tit-h2{margin-left:auto;margin-right:auto}.tit-cta .tit-lead{margin:0 auto 32px}
 .tit-btns{display:flex;flex-wrap:wrap;justify-content:center;gap:14px}
-@media (max-width:900px){.tit-split,.tit-why{grid-template-columns:1fr}.tit-sticky{position:static}.tit-visual{min-height:280px}.tit-badge{left:14px}}
+@media (max-width:900px){.tit-split,.tit-why{grid-template-columns:1fr}#why-tranter{overflow:hidden}.tit-sticky{position:static}.tit-visual{min-height:280px}.tit-badge{left:14px}}
 @media (prefers-reduced-motion:reduce){[data-reveal]{animation:none!important;opacity:1!important;transform:none!important}.tit-track,.tit-net path,.tit-net circle,.tit-bars i,.tit-live i,.tit-badge i,.tit-progress{animation:none!important}.tit-card,}
 
 /* ===== v3 ===== */
@@ -382,7 +384,11 @@ d.readyState==='loading'?d.addEventListener('DOMContentLoaded',init):init();
 <p class="tit-lead">Conferences, partner showcases and knowledge sessions. See what is next and revisit what you missed.</p>
 </div>
 <div aria-live="polite" class="tit-events-widget__grid" data-events-grid="">
-<p class="tit-events-widget__status" data-events-status="">Loading upcoming events…</p>
+<div data-events-fallback="true" class="tit-events-widget__fallback">
+<article class="tit-events-widget__card"><a class="tit-events-widget__image" href="/events/#tranter-event-19772" aria-label="View details for Moonshot x Grey: Courage &amp; Conviction"><img src="https://tranter-it.com/wp-content/uploads/2026/09/moonshot-1024x561.png" alt="Moonshot x Grey: Courage &amp; Conviction" loading="lazy"></a><div class="tit-events-widget__body"><span class="tit-events-widget__meta">Networking · October 28, 2026</span><h3>Moonshot x Grey: Courage &amp; Conviction</h3><span class="tit-events-widget__location">National Theatre, Lagos, Lagos, Nigeria</span><a class="tit-events-widget__link" href="/events/#tranter-event-19772">View event details <span aria-hidden="true">→</span></a></div></article>
+<article class="tit-events-widget__card"><a class="tit-events-widget__image" href="/events/#tranter-event-19818" aria-label="View details for WimBiz 25th Annual Conference"><img src="https://tranter-it.com/wp-content/uploads/2026/09/Screenshot-2026-09-22-125810.png" alt="WimBiz 25th Annual Conference" loading="lazy"></a><div class="tit-events-widget__body"><span class="tit-events-widget__meta">Conference · November 5, 2026</span><h3>WimBiz 25th Annual Conference</h3><p>Rooted, Rising, Ready: Born in Africa, Built for the World</p><span class="tit-events-widget__location">Eko Hotel &amp; Suites, Lagos, Nigeria</span><a class="tit-events-widget__link" href="/events/#tranter-event-19818">View event details <span aria-hidden="true">→</span></a></div></article>
+</div>
+<p class="tit-events-widget__status" data-events-status="" hidden>Loading upcoming events…</p>
 </div>
 <div class="tit-events-widget__more">
 <a class="tit-btn" data-events-more="" href="/events/">See all events <span aria-hidden="true">↗</span></a>
@@ -391,7 +397,7 @@ d.readyState==='loading'?d.addEventListener('DOMContentLoaded',init):init();
 </section>
 <style>
   /* Elementor widget scope: these styles affect only #events. */
-  #events.tit-events-widget .tit-events-widget__grid { display:grid; gap:22px; grid-template-columns:repeat(3,minmax(0,1fr)); }
+  #events.tit-events-widget .tit-events-widget__grid { display:grid; gap:22px; grid-template-columns:repeat(3,minmax(0,1fr)); } #events.tit-events-widget .tit-events-widget__fallback{display:contents}
   #events.tit-events-widget .tit-events-widget__card { display:flex; flex-direction:column; min-width:0; overflow:hidden; background:#fff; border:1px solid rgba(0,27,20,.12); border-radius:22px; color:#001b14; box-shadow:0 16px 34px -24px rgba(0,27,20,.45); transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease; }
   #events.tit-events-widget .tit-events-widget__card:hover { transform:translateY(-5px); border-color:rgba(0,166,81,.5); box-shadow:0 24px 44px -24px rgba(0,80,45,.45); }
   #events.tit-events-widget .tit-events-widget__image { display:block; aspect-ratio:16/9; overflow:hidden; background:linear-gradient(135deg,#00382a,#00a651); }
@@ -491,7 +497,8 @@ d.readyState==='loading'?d.addEventListener('DOMContentLoaded',init):init();
         grid.innerHTML = cards.map(cardMarkup).join('');
       })
       .catch(function () {
-        status.innerHTML = 'Upcoming events are temporarily unavailable. <a href="' + escapeHtml(pageUrl) + '">View the events page</a>.';
+        /* Keep the seeded cards visible; the link below remains available for the full calendar. */
+        status.hidden = true;
       });
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', load); else load();
