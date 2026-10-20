@@ -151,7 +151,7 @@ html[data-tranter-market="ng"] [data-tranter-region~="global"]:not([data-tranter
 .tit-hero__eyebrow{display:inline-flex;align-items:center;gap:10px;padding:8px 16px 8px 12px;font-size:13px;font-weight:700;color:var(--mist);background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:999px}
 .tit-hero__eyebrow i{width:7px;height:7px;border-radius:50%;background:var(--g);box-shadow:0 0 0 4px rgba(0,166,81,.25)}
 .tit-hero__heading{font-weight:800;font-size:clamp(2.2rem,3.8vw + 1rem,4rem);line-height:1.06;letter-spacing:-.02em;color:#fff!important}
-.tit-hero__heading span{background:linear-gradient(100deg,var(--g) 10%,#6fe3a4 60%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.tit-hero__heading span{background:linear-gradient(100deg,var(--g) 10%,#6fe3a4 60%);-webkit-background-clip:text;background-clip:text;color:transparent}.tit-hero__heading{font-family:'Mulish',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:clamp(1.9rem,2.7vw + .72rem,3.25rem);line-height:1.04;letter-spacing:-.035em;text-wrap:balance;max-width:11ch}
 .tit-hero__body{max-width:470px;font-size:clamp(.88rem,.4vw + .8rem,1rem);line-height:1.65;color:var(--mist)}
 .tit-hero__body b{color:#6fe3a4}
 .tit-hero__cta{display:inline-flex;align-items:center;gap:12px;padding:16px 26px;font-size:15px;font-weight:700;color:#fff!important;text-decoration:none!important;background:var(--g);border:1px solid rgba(255,255,255,.25);border-radius:999px;box-shadow:0 10px 30px -8px rgba(0,166,81,.55);transition:translate .25s,box-shadow .25s,background .25s}
@@ -164,7 +164,7 @@ html[data-tranter-market="ng"] [data-tranter-region~="global"]:not([data-tranter
 .tit-hero__ind span{position:relative;width:44px;height:3px;border-radius:3px;background:rgba(255,255,255,.25);overflow:hidden}
 .tit-hero__ind span::after{content:'';position:absolute;inset:0;background:#6fe3a4;transform-origin:0 50%;transform:scaleX(0);animation:titInd 45s linear infinite;animation-delay:var(--d,0s)}
 @keyframes titInd{0%{transform:scaleX(0)}25%{transform:scaleX(1)}25.1%,100%{transform:scaleX(0)}}
-@media (max-width:900px){.tit-hero__panel{max-width:100%;padding:100px 24px 56px;justify-content:flex-end;background:linear-gradient(180deg,rgba(0,27,20,.25),rgba(0,27,20,.6) 55%,rgba(0,27,20,.88));-webkit-mask-image:none;mask-image:none;border-right:0}.tit-hero__heading{font-size:clamp(1.7rem,7vw,2.3rem)}.tit-hero__eyebrow{font-size:11px;padding:6px 12px 6px 9px}.tit-hero__body{max-width:100%}}
+@media (max-width:900px){.tit-hero__panel{max-width:100%;padding:100px 24px 56px;justify-content:flex-end;background:linear-gradient(180deg,rgba(0,27,20,.25),rgba(0,27,20,.6) 55%,rgba(0,27,20,.88));-webkit-mask-image:none;mask-image:none;border-right:0}.tit-hero__heading{font-size:clamp(1.55rem,6vw,2rem);line-height:1.06;letter-spacing:-.03em;max-width:12ch}.tit-hero__eyebrow{font-size:11px;padding:6px 12px 6px 9px}.tit-hero__body{max-width:100%}}
 @media (prefers-reduced-motion:reduce){.tit-hero__media,.tit-hero__intro{animation:none!important}.tit-hero__intro{display:none}.tit-hero__slide,.tit-hero__ind span::after{animation:none!important}.tit-hero--slides .tit-hero__copy{animation:none!important;opacity:0!important;visibility:hidden!important}.tit-hero--slides .tit-hero__copy--0{opacity:1!important;visibility:visible!important}.tit-hero__first>*{animation:none!important;opacity:1!important;filter:none!important}}
 /* ---- cta ---- */
 .tit-cta{text-align:center;background:radial-gradient(700px 360px at 50% 0%,rgba(0,166,81,.35),transparent 70%),var(--ink)}
@@ -242,8 +242,9 @@ html[data-tranter-market="ng"] [data-tranter-region~="global"]:not([data-tranter
 #clients .tit-track{gap:0}
 
 /* ===== v5 ===== */
-#clients{--lw:78px}
-#clients .tit-marq{margin-top:0}
+#clients{--lw:78px;padding-top:clamp(72px,8vw,108px);padding-bottom:clamp(72px,8vw,108px)}
+#clients .tit-marq{margin-top:0;padding-block:clamp(10px,1.4vw,18px)}
+#clients .tit-marq:last-of-type{padding-bottom:clamp(28px,3.5vw,46px)}
 #clients .tit-marq+.tit-marq{margin-top:14px}
 #clients .tit-track{animation-duration:var(--dur,55s)}.tit-marq--partners{margin-top:14px}.tit-cl--banking .tit-cl__logo{box-shadow:0 0 0 2px rgba(0,166,81,.1),0 2px 6px rgba(0,27,20,.08)}.tit-cl--consumer .tit-cl__logo{box-shadow:0 0 0 2px rgba(255,209,102,.18),0 2px 6px rgba(0,27,20,.08)}.tit-cl--public .tit-cl__logo{box-shadow:0 0 0 2px rgba(137,18,25,.12),0 2px 6px rgba(0,27,20,.08)}.tit-cl--pensions .tit-cl__logo{box-shadow:0 0 0 2px rgba(92,140,255,.13),0 2px 6px rgba(0,27,20,.08)}.tit-cl--finance .tit-cl__logo{box-shadow:0 0 0 2px rgba(195,167,255,.16),0 2px 6px rgba(0,27,20,.08)}
 .tit-cl__logo{width:var(--lw,78px);height:44px;border-radius:14px}
